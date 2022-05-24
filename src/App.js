@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import NavbarComponent from "./components/NavbarComponent";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
+import Zones from "./pages/Zones";
+import Cities from "./pages/Cities";
 
 function App() {
+  const listZone = [
+    {
+      zone: "Bagmati",
+      city: ["Ktm", "Bhaktapur", "Lalitpur"],
+    },
+    {
+      zone: "Gandaki",
+      city: ["Gorkha", "Kaski", "Lamjung"],
+    },
+    {
+      zone: "Narayani",
+      city: ["Bara", "Parsa", "Rautahat"],
+    },
+  ];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <NavbarComponent zone={listZone} />
+      <Routes>
+        <Route path="/" element="" />
+        {/* <Route index element="" /> */}
+        <Route path=":zone" element={<Zones zone={listZone} />}>
+          <Route path=":city" element={<Cities zone={listZone} />}></Route>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

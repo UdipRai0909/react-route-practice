@@ -1,13 +1,240 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+}
+
+body {
+  background: grey;
+  /* font-family: "Roboto", "sans-serif"; */
+}
+
+#root {
+  /* display: flex; */
+  /* justify-content: space-between; */
+  /* padding: 20px; */
+}
+
+a,
+a:hover,
+a:visited,
+a:focus,
+a:active {
+  font-size: 15px;
+  text-decoration: none;
+  color: inherit;
+  outline: 0;
+  cursor: pointer;
+}
+
+.open-btn,
+.close-btn {
+  display: none;
+  z-index: -1;
+}
+
+.navbar-c {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  background-color: maroon;
+}
+
+ul {
+  align-items: center;
+  cursor: pointer;
+  caret-color: transparent;
+}
+
+ul li {
+  list-style-type: none;
+  display: inline;
+  margin-left: 20px;
+  color: aliceblue;
+  cursor: pointer;
+}
+
+ul li:hover,
+ul li a:hover,
+ul.toggle-setting li:hover {
+  color: yellowgreen;
+  cursor: pointer;
+}
+
+ul.left-ul {
+  display: flex;
+  flex: 20;
+}
+
+ul.left-ul li:first-child a {
+  margin-left: 0;
+  font-size: 36px;
+  color: yellowgreen;
+}
+
+ul.left-ul li a {
+  /* margin-left: 60px; */
+  font-size: 22px;
+}
+
+ul.right-ul {
+  display: flex;
+  flex: 1;
+}
+
+ul.right-ul li {
+  font-size: 18px;
+  /* position: absolute; */
+  flex-direction: column;
+  margin-left: 0;
+  margin-top: 10px;
+  color: #000;
+}
+
+ul.right-ul li:first-child a {
+  margin-top: 0;
+}
+
+ul.right-ul li a {
+  font-weight: bold;
+}
+
+button.settingButton {
+  background-color: transparent;
+  border: 0;
+  font-size: 24px;
+  color: #fff;
+}
+
+ul.toggle-setting {
+  position: absolute;
+  right: 15px;
+  width: 100px;
+  margin-top: 5px;
+  padding: 20px 10px;
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #000;
+}
+
+ul.toggle-setting li {
+  color: aliceblue;
+}
+
+@media only screen and (max-width: 500px) {
+  #root {
+    height: 100vh;
+    display: flex;
+    background-color: transparent;
+    height: 100%;
+    /* width: 0; */
+  }
+
+  a.open-btn {
+    /* display: none; */
+    display: block;
+    caret-color: transparent;
+    position: absolute;
+    font-size: 36px;
+  }
+
+  a.close-btn {
+    display: none;
+    position: absolute;
+    top: 10px;
+    margin-left: 0;
+    z-index: 10;
+    font-size: 50px;
+  }
+
+  a.open-btn,
+  a.close-btn {
+    top: 10px;
+    left: 12px;
+    color: #fff;
+    caret-color: transparent;
+    z-index: 10;
+  }
+  a.open-btn:hover,
+  a.close-btn:hover {
+    color: yellowgreen;
+  }
+
+  .navbar-c {
+    display: none;
+    width: 100%;
+    height: 270px;
+    transition: 0.5s;
+    flex-direction: column;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding: 0;
+  }
+
+  .navbar-c::-webkit-scrollbar {
+    /* display: none; */
+  }
+
+  ul li {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  ul li:first-child {
+    margin-left: 0;
+  }
+
+  ul.left-ul {
+    flex: initial;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;
+  }
+
+  ul.left-ul li {
+    margin-left: 0;
+  }
+
+  ul:left-ul li:first-child {
+    margin-top: 5px;
+  }
+
+  ul.right-ul {
+    margin-top: 0;
+  }
+
+  ul.right-ul li {
+    font-size: 12px;
+  }
+
+  ul.toggle-setting {
+    position: absolute;
+    left: 15px;
+    margin: 0 auto;
+    padding: 20px 10px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+  }
+
+  ul.toggle-setting li {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  a.close-btn {
+  }
 }
